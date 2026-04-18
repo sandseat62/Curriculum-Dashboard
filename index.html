@@ -1,0 +1,305 @@
+import React, { useState } from 'react';
+import { 
+  Home, BookOpen, Smartphone, Heart, Users, Brain, ShieldAlert, 
+  ShoppingCart, Tv, DollarSign, EyeOff, ArrowRight, Activity 
+} from 'lucide-react';
+
+const modulesData = [
+  {
+    id: 1,
+    title: "The Scroll",
+    subtitle: "Doomscrolling & Infinite Feeds",
+    icon: <Smartphone className="w-8 h-8 text-blue-500" />,
+    color: "bg-blue-50 border-blue-200 text-blue-800",
+    curtain: "The Scroll is the curtain of distraction. We use infinite feeds like news or short videos to avoid sitting in silence. If we are quiet, we might have to face our real worries or listen to God's voice, which can feel uncomfortable.",
+    science: "Infinite scrolling uses a 'variable reward' system, much like a slot machine. Your brain does not know if the next swipe will show something boring or exciting. This unpredictability keeps your dopamine firing, keeping you locked in a zombie-like state.",
+    renew: "To be renewed, we must practice the scary art of stillness. We ask God to clean our hearts of the anxiety that drives us to distraction. True freedom comes when we realize we do not need to consume all the world's information to be safe; we just need to trust God.",
+    action: "Track your screen time for one week. Practice 5 minutes of total stillness every day with no phone or music."
+  },
+  {
+    id: 2,
+    title: "The Score",
+    subtitle: "Social Media & Validation",
+    icon: <Heart className="w-8 h-8 text-pink-500" />,
+    color: "bg-pink-50 border-pink-200 text-pink-800",
+    curtain: "The Score is the curtain of fake perfection. We carefully choose our photos and posts to show only the good parts of our lives. We hide our actual, messy lives behind a wall of likes and followers.",
+    science: "When we get a 'like', our brain gets a quick hit of dopamine. But it is empty calories. The brain craves more validation, leading to constant comparison and sadness when we do not measure up to others' fake highlight reels.",
+    renew: "Getting a clean heart means letting go of our hidden motives to impress people. We renew our minds by accepting that our true identity and worth come entirely from what Jesus did for us, not our digital popularity.",
+    action: "Do a 'feed sweep' and unfollow accounts that make you feel jealous. Fast from posting for one week."
+  },
+  {
+    id: 3,
+    title: "The Shop",
+    subtitle: "Compulsive Buying",
+    icon: <ShoppingCart className="w-8 h-8 text-emerald-500" />,
+    color: "bg-emerald-50 border-emerald-200 text-emerald-800",
+    curtain: "The Shop is the curtain of temporary comfort. When we feel sad, stressed, or empty, we open apps to buy things. We are hiding our emotional pain behind the thrill of a new package arriving.",
+    science: "Brain scans show that the biggest dopamine spike happens during the anticipation—when you are browsing and when you hit 'buy'. Your brain is tricked into thinking a new item will solve your internal pain.",
+    renew: "We must confess to God that we are looking for peace in places that cannot provide it. A clean heart in this area means trusting that God is the only true source of comfort and provision.",
+    action: "Implement a strict '24-Hour Rule' between putting an item in your cart and actually buying it."
+  },
+  {
+    id: 4,
+    title: "The Stream",
+    subtitle: "Binge-Watching & Gaming",
+    icon: <Tv className="w-8 h-8 text-purple-500" />,
+    color: "bg-purple-50 border-purple-200 text-purple-800",
+    curtain: "The Stream is the curtain of escape. Real life is difficult. Video games and binge-watching offer a fake world where the rules are clear, the rewards are instant, and we do not have to deal with our real-world problems.",
+    science: "Games and shows are designed to keep you in a 'flow state'. They feed your brain's achievement centers. You level up in a game, and your brain feels a false sense of success, masking the feeling of being stuck in real life.",
+    renew: "We renew our minds by bringing our feelings of boredom or failure into the light. We ask God to give us the strength to face reality. True joy is found in the real-world church community, not a virtual world.",
+    action: "Turn off the 'auto-play next episode' feature on all streaming apps. Track your gaming/watch hours."
+  },
+  {
+    id: 5,
+    title: "The Bet",
+    subtitle: "Online Betting",
+    icon: <DollarSign className="w-8 h-8 text-yellow-600" />,
+    color: "bg-yellow-50 border-yellow-200 text-yellow-800",
+    curtain: "The Bet is the curtain of false hope. When stressed about money, betting apps offer a fake promise that one big win will fix everything. We build thick curtains to hide our losses and create a double life of financial secrets.",
+    science: "The brain releases massive amounts of dopamine when you are waiting for the result. Apps also highlight 'near-misses', which trigger the exact same brain chemistry as a win, tricking you into chasing the loss instead of walking away.",
+    renew: "You cannot heal while keeping financial secrets. The first step is bringing losses into the light. A clean heart lets go of the idol of quick money and trusts God entirely for daily provision.",
+    action: "Delete betting apps and set up permanent financial blockers or give accountability access to a trusted person."
+  },
+  {
+    id: 6,
+    title: "The Slide",
+    subtitle: "Pornography & Hidden Sins",
+    icon: <EyeOff className="w-8 h-8 text-red-500" />,
+    color: "bg-red-50 border-red-200 text-red-800",
+    curtain: "The Slide is the thickest curtain, driven by deep shame. Because of the stigma, people feel they can never tell anyone. They live a double life, smiling at church while carrying a crushing secret.",
+    science: "Pornography provides a super-stimulus that the human brain was never meant to handle. It floods the brain with dopamine, rewiring natural pathways for intimacy. It bonds the brain to a screen instead of a real person.",
+    renew: "You cannot beat this in the dark. The first step is bringing the secret into the light with trusted people. We ask God to reach inside and create a brand new, unmixed heart that desires Him more than the sin.",
+    action: "Break the silence by telling one trusted person or joining a Proven Ministries group. Install accountability software."
+  }
+];
+
+export default function App() {
+  const [currentView, setCurrentView] = useState('home');
+  const [activeModule, setActiveModule] = useState(null);
+
+  const navigateToModule = (module) => {
+    setActiveModule(module);
+    setCurrentView('module');
+  };
+
+  const navigateHome = () => {
+    setActiveModule(null);
+    setCurrentView('home');
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
+      {/* Navigation Bar */}
+      <nav className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div 
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={navigateHome}
+          >
+            <div className="bg-slate-800 text-white p-2 rounded-lg">
+              <Activity size={20} />
+            </div>
+            <span className="font-bold text-xl tracking-tight text-slate-800">
+              Grace Community
+            </span>
+          </div>
+          <div className="flex gap-4">
+            <button 
+              onClick={navigateHome}
+              className={`flex items-center gap-1 px-3 py-2 rounded-md transition-colors ${currentView === 'home' ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-500 hover:bg-slate-50'}`}
+            >
+              <Home size={18} />
+              <span className="hidden sm:inline">Home</span>
+            </button>
+            <button 
+              onClick={() => {
+                if (currentView !== 'home') navigateHome();
+                setTimeout(() => {
+                  document.getElementById('curriculum-section')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              className="flex items-center gap-1 px-3 py-2 text-slate-500 hover:bg-slate-50 rounded-md transition-colors"
+            >
+              <BookOpen size={18} />
+              <span className="hidden sm:inline">Curriculum</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content Area */}
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        {currentView === 'home' && (
+          <div className="space-y-16 animate-in fade-in duration-500">
+            
+            {/* Hero Section */}
+            <section className="text-center max-w-3xl mx-auto space-y-6 pt-8">
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
+                Welcome to a Church <span className="text-blue-600">Without Curtains</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
+                A place to drop the performance, step out of hiding, and find true freedom from digital addictions through the renewing power of Christ.
+              </p>
+            </section>
+
+            {/* Core Concepts Grid */}
+            <section className="grid md:grid-cols-2 gap-8">
+              
+              {/* Concept 1 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-blue-100 w-12 h-12 flex items-center justify-center rounded-xl mb-6">
+                  <EyeOff className="text-blue-600" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold mb-3 text-slate-900">What is a Church Without Curtains?</h2>
+                <p className="text-slate-600 leading-relaxed">
+                  It means we drop the fake perfection. In the Bible, the heavy curtain separating people from God was torn when Jesus died. This means there are no more barriers. We do not have to hide behind a "curtain" of religious performance. We bring our real, messy lives into the open.
+                </p>
+              </div>
+
+              {/* Concept 2 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-purple-100 w-12 h-12 flex items-center justify-center rounded-xl mb-6">
+                  <Brain className="text-purple-600" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold mb-3 text-slate-900">How Algorithms Trap Us</h2>
+                <p className="text-slate-600 leading-relaxed">
+                  Tech companies design apps to hijack a chemical in our brain called dopamine. Dopamine is not about pleasure; it is about craving. Algorithms use unpredictable rewards (like a slot machine) to keep us scrolling. Our brains get exhausted, and willpower alone is not enough to stop. We need God to renew our minds.
+                </p>
+              </div>
+
+              {/* Concept 3 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-red-100 w-12 h-12 flex items-center justify-center rounded-xl mb-6">
+                  <ShieldAlert className="text-red-600" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold mb-3 text-slate-900">Shame and Why We Hide</h2>
+                <p className="text-slate-600 leading-relaxed">
+                  When we struggle with digital habits like doomscrolling, shopping, or pornography, we feel deep shame. Shame tells us, "If people knew the real me, they would not love me." Because of this fear, we build curtains. We live a double life, pretending everything is fine while silently hurting.
+                </p>
+              </div>
+
+              {/* Concept 4 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div className="bg-emerald-100 w-12 h-12 flex items-center justify-center rounded-xl mb-6">
+                  <Users className="text-emerald-600" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold mb-3 text-slate-900">The Beautiful Mosaic</h2>
+                <p className="text-slate-600 leading-relaxed">
+                  Healing cannot happen in isolation. At Grace, we believe the church is a Mosaic. A mosaic is made of broken pieces put together to create something beautiful. If you hide your broken pieces behind a curtain, you cannot be part of the picture. We need honest community to heal.
+                </p>
+              </div>
+
+            </section>
+
+            {/* Tahor Section */}
+            <section className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
+              <Heart className="w-16 h-16 text-blue-400 mx-auto mb-6" />
+              <h2 className="text-3xl font-bold mb-4">A New, Clean Heart (Tahor)</h2>
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
+                Trying to fix our addictions by just trying harder is like hanging a new curtain to hide a messy room. It is just behavior modification. The Bible uses the Hebrew word <strong>Tahor</strong> to describe a completely pure, unmixed heart. When we stop hiding, God steps in to do what we cannot. He creates a brand new, clean heart inside us.
+              </p>
+            </section>
+
+            {/* Curriculum Modules Section */}
+            <section id="curriculum-section" className="pt-8 pb-16">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Digital Freedom Curriculum</h2>
+                <p className="text-slate-600 max-w-2xl mx-auto">
+                  Select a module below that relates to your struggle. Learn how your brain is being tricked and how to find freedom through the Steps to Freedom in Christ.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {modulesData.map((module) => (
+                  <div 
+                    key={module.id}
+                    onClick={() => navigateToModule(module)}
+                    className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all cursor-pointer group flex flex-col items-center text-center"
+                  >
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${module.color}`}>
+                      {module.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">Module {module.id}: {module.title}</h3>
+                    <p className="text-slate-500 mb-6 font-medium">{module.subtitle}</p>
+                    <div className="mt-auto flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                      Explore Module <ArrowRight size={18} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+          </div>
+        )}
+
+        {/* Module View */}
+        {currentView === 'module' && activeModule && (
+          <div className="max-w-3xl mx-auto animate-in slide-in-from-bottom-4 duration-300">
+            <button 
+              onClick={navigateHome}
+              className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-8 transition-colors font-medium"
+            >
+              <ArrowRight size={20} className="rotate-180" /> Back to Curriculum
+            </button>
+
+            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+              {/* Module Header */}
+              <div className={`${activeModule.color.split(' ')[0]} p-8 sm:p-12 text-center border-b border-slate-100`}>
+                <div className="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                  {activeModule.icon}
+                </div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">
+                  Module {activeModule.id}: {activeModule.title}
+                </h1>
+                <p className="text-lg font-medium text-slate-700 opacity-80">
+                  {activeModule.subtitle}
+                </p>
+              </div>
+
+              {/* Module Content */}
+              <div className="p-8 sm:p-12 space-y-10">
+                
+                <div>
+                  <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4 border-b pb-2">
+                    <EyeOff className="text-slate-400" /> The Curtain (How We Hide)
+                  </h2>
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    {activeModule.curtain}
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4 border-b pb-2">
+                    <Brain className="text-slate-400" /> The Brain Science
+                  </h2>
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    {activeModule.science}
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4 border-b pb-2">
+                    <Heart className="text-slate-400" /> Renewing the Mind & Heart
+                  </h2>
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    {activeModule.renew}
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                  <h2 className="text-xl font-bold text-slate-900 mb-2">Take Action This Week:</h2>
+                  <p className="text-slate-700 font-medium">
+                    {activeModule.action}
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        )}
+
+      </main>
+    </div>
+  );
+}
