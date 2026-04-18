@@ -55,6 +55,82 @@
                 </p>
             </div>
 
+            <!-- Quick Selection Checklist -->
+            <div class="bg-blue-50 p-8 sm:p-10 rounded-3xl shadow-sm border border-blue-100 max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">What do you struggle with the most?</h2>
+                    <p class="text-slate-600 text-lg">Select the addiction below to go directly to the module that can help.</p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <button onclick="showModuleDetails('scroll')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Doomscrolling & Feeds</span>
+                            <span class="text-sm text-slate-500">The Scroll</span>
+                        </div>
+                    </button>
+                    
+                    <button onclick="showModuleDetails('score')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-pink-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-pink-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Social Media & Validation</span>
+                            <span class="text-sm text-slate-500">The Score</span>
+                        </div>
+                    </button>
+
+                    <button onclick="showModuleDetails('shop')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-emerald-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Compulsive Buying</span>
+                            <span class="text-sm text-slate-500">The Shop</span>
+                        </div>
+                    </button>
+
+                    <button onclick="showModuleDetails('stream')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-purple-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-purple-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Binge-Watching & Gaming</span>
+                            <span class="text-sm text-slate-500">The Stream</span>
+                        </div>
+                    </button>
+
+                    <button onclick="showModuleDetails('bet')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-yellow-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-yellow-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Online Betting</span>
+                            <span class="text-sm text-slate-500">The Bet</span>
+                        </div>
+                    </button>
+
+                    <button onclick="showModuleDetails('slide')" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-red-500 hover:shadow-md transition-all text-left group w-full">
+                        <div class="text-slate-300 group-hover:text-red-500 transition-colors">
+                            <i data-lucide="square" class="w-6 h-6 block group-hover:hidden"></i>
+                            <i data-lucide="check-square" class="w-6 h-6 hidden group-hover:block"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">Pornography & Hidden Sins</span>
+                            <span class="text-sm text-slate-500">The Slide</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
             <!-- Educational Sections Grid -->
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Definition -->
