@@ -26,10 +26,10 @@
                 </div>
                 <span class="font-bold text-lg hidden sm:block">Church Without Curtains</span>
             </div>
-            <div class="flex gap-2 sm:gap-4 text-sm sm:text-base">
+            <div class="flex gap-2 sm:gap-4 text-xs sm:text-base">
                 <button onclick="showView('home')" class="text-slate-600 hover:text-blue-600 font-medium px-2 py-1 rounded-md">Home</button>
                 <button onclick="showView('curriculum')" class="text-slate-600 hover:text-blue-600 font-medium px-2 py-1 rounded-md">Curriculum</button>
-                <button onclick="showView('help')" class="bg-slate-100 text-slate-800 hover:bg-slate-200 font-medium px-3 py-1 rounded-md hidden sm:block">Get Help</button>
+                <button onclick="showView('help')" class="bg-blue-600 text-white hover:bg-blue-700 font-medium px-3 py-1 rounded-md">Get Help</button>
             </div>
         </div>
     </nav>
@@ -183,9 +183,14 @@
         <!-- 3. MODULE DETAILS VIEW -->
         <section id="view-module-details" class="view-section fade-in">
             <div class="max-w-4xl mx-auto">
-                <button onclick="showView('home')" class="text-slate-500 hover:text-blue-600 font-medium flex items-center gap-2 mb-6 transition-colors">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
-                </button>
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="showView('home')" class="text-slate-500 hover:text-blue-600 font-medium flex items-center gap-2 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+                    </button>
+                    <button onclick="showView('help')" class="text-blue-600 font-semibold flex items-center gap-2 border border-blue-100 bg-blue-50 px-3 py-1 rounded-lg">
+                        <i data-lucide="phone-call" class="w-4 h-4"></i> Need help now?
+                    </button>
+                </div>
                 
                 <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-100">
                     <div id="module-icon-container" class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
