@@ -17,11 +17,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-    <!-- Panic / Exit Button -->
-    <button onclick="emergencyExit()" class="fixed bottom-6 right-6 sm:top-4 sm:bottom-auto z-50 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center gap-2 transition-transform hover:scale-105">
-        <i data-lucide="door-open" class="w-5 h-5"></i> Exit to Google
-    </button>
-
     <!-- Navigation -->
     <nav class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -268,11 +263,6 @@
                 target.classList.add('active');
                 window.scrollTo(0, 0);
             }
-        }
-
-        // --- Panic Button Logic ---
-        function emergencyExit() {
-            window.location.replace("https://www.google.com");
         }
 
         // --- Data Definitions (Including Prep and Weeks) ---
