@@ -17,7 +17,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-    <!-- Panic / Exit Button (Fixed to screen) -->
+    <!-- Panic / Exit Button -->
     <button onclick="emergencyExit()" class="fixed bottom-6 right-6 sm:top-4 sm:bottom-auto z-50 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center gap-2 transition-transform hover:scale-105">
         <i data-lucide="door-open" class="w-5 h-5"></i> Exit to Google
     </button>
@@ -34,18 +34,19 @@
             <div class="flex gap-2 sm:gap-4 text-sm sm:text-base">
                 <button onclick="showView('home')" class="text-slate-600 hover:text-blue-600 font-medium px-2 py-1 rounded-md">Home</button>
                 <button onclick="showView('curriculum')" class="text-slate-600 hover:text-blue-600 font-medium px-2 py-1 rounded-md">Curriculum</button>
-                <button onclick="showView('heart')" class="text-slate-600 hover:text-blue-600 font-medium px-2 py-1 rounded-md">Our Heart</button>
                 <button onclick="showView('help')" class="bg-slate-100 text-slate-800 hover:bg-slate-200 font-medium px-3 py-1 rounded-md hidden sm:block">Get Help</button>
             </div>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-grow w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <main class="flex-grow w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
-        <!-- 1. HOME VIEW -->
-        <section id="view-home" class="view-section active space-y-8 text-center fade-in">
-            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-100">
+        <!-- 1. HOME VIEW (Comprehensive Landing Page) -->
+        <section id="view-home" class="view-section active space-y-12 fade-in pb-12">
+            
+            <!-- Hero Section -->
+            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-100 text-center">
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
                     Welcome to a Place <br/> <span class="text-blue-600">Without Curtains</span>
                 </h1>
@@ -54,12 +55,92 @@
                 </p>
                 <div class="p-6 bg-blue-50 rounded-2xl border border-blue-100 inline-block">
                     <h2 class="text-xl font-bold text-blue-900 mb-2">Not sure where to start?</h2>
-                    <p class="text-blue-700 mb-6">Take our simple, 2-minute tool to find the right path for you.</p>
+                    <p class="text-blue-700 mb-6">Take our simple tool to find the right path for you.</p>
                     <button onclick="showView('quiz-setup')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-all hover:-translate-y-1 text-lg flex items-center gap-2 mx-auto">
-                        Take the Digital Reset Assessment <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        Take the Assessment <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- Educational Sections Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Definition -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="eye-off" class="text-blue-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">What is a Church Without Curtains?</h2>
+                    <p class="text-slate-600 leading-relaxed">When Jesus died, the heavy curtain separating people from God was torn open. There are no more barriers. Today, it means we drop our fake perfection. We do not hide our messy, real lives behind a curtain of religious performance. We come to God exactly as we are.</p>
+                </div>
+
+                <!-- Algorithms -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="bg-purple-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="brain" class="text-purple-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">How Algorithms Trap Us</h2>
+                    <p class="text-slate-600 leading-relaxed">Tech companies build apps to hijack a chemical in your brain called dopamine. It is your brain's craving chemical. They use unpredictable rewards to keep you scrolling. Over time, your brain gets exhausted. You cannot just use willpower to stop; you need your mind renewed.</p>
+                </div>
+
+                <!-- Why We Hide -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="bg-slate-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="text-slate-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Why We Hide</h2>
+                    <p class="text-slate-600 mb-4">When life gets hard, we look for a safe place to hide. We use our screens as new curtains to escape:</p>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li><strong>Stress:</strong> We scroll to numb racing thoughts.</li>
+                        <li><strong>Pain:</strong> We shop to buy temporary comfort.</li>
+                        <li><strong>Failure:</strong> We game or stream to feel like we are winning.</li>
+                    </ul>
+                </div>
+
+                <!-- Shame -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="bg-red-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-alert" class="text-red-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Understanding Shame</h2>
+                    <p class="text-slate-600 mb-4">Shame tells us, "If people knew the real me, they would not love me." Shame takes different forms:</p>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li><strong>Performance:</strong> Fear that you must look perfect online.</li>
+                        <li><strong>Avoidance:</strong> Guilt from ignoring real life for a screen.</li>
+                        <li><strong>Secret:</strong> Feeling dirty from hidden habits.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Community & Transformation Banner -->
+            <div class="bg-slate-900 p-8 sm:p-12 rounded-3xl shadow-xl text-white">
+                <div class="text-center mb-10">
+                    <i data-lucide="heart" class="text-blue-400 w-12 h-12 mx-auto mb-4"></i>
+                    <h2 class="text-3xl font-bold">Healing Together</h2>
+                    <p class="text-slate-400 mt-2">True freedom requires community and God's help.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-8 sm:gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-5 h-5"></i> The Mosaic</h3>
+                        <p class="text-slate-300 leading-relaxed">A mosaic is beautiful art made entirely of broken pieces. If you hide your broken pieces behind a curtain, you cannot be part of the picture. We need honest community to heal together without judgment.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-emerald-300 mb-3 flex items-center gap-2"><i data-lucide="droplet" class="w-5 h-5"></i> A Clean Heart (Tahor)</h3>
+                        <p class="text-slate-300 leading-relaxed">Trying to fix your habits by just trying harder is like putting up a new curtain. We need God to step in. We ask Him for a Tahor heart—a completely clean, unmixed heart that desires Him more than our digital escapes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curriculum Navigation (Embedded) -->
+            <div class="pt-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Digital Freedom Curriculum</h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto">Choose the curtain you hide behind the most to find practical steps to freedom, or take the assessment above.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="home-curriculum-grid">
+                    <!-- Modules generated by JS -->
+                </div>
+            </div>
+
         </section>
 
         <!-- 2. QUIZ SETUP VIEW -->
@@ -126,9 +207,9 @@
                     <button onclick="showView('curriculum')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl flex-1 transition-colors text-center">
                         Go to Curriculum
                     </button>
-                    <a href="mailto:?subject=My Action Plan&body=I took the Digital Reset Assessment." class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-6 rounded-xl flex-1 transition-colors text-center flex items-center justify-center gap-2">
-                        <i data-lucide="mail" class="w-5 h-5"></i> Email My Results
-                    </a>
+                    <button onclick="showView('home')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-6 rounded-xl flex-1 transition-colors text-center">
+                        Back to Home
+                    </button>
                 </div>
             </div>
         </section>
@@ -145,34 +226,7 @@
             </div>
         </section>
 
-        <!-- 6. OUR HEART VIEW (Mosaic & Tahor) -->
-        <section id="view-heart" class="view-section fade-in space-y-8">
-            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-8 items-center">
-                <div class="bg-emerald-100 p-6 rounded-2xl flex-shrink-0">
-                    <i data-lucide="layout-grid" class="w-16 h-16 text-emerald-600"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-extrabold text-slate-900 mb-4">The Mosaic</h2>
-                    <p class="text-lg text-slate-600">
-                        Healing cannot happen alone. At Grace, we believe the church is a Mosaic. A mosaic is beautiful art made entirely of broken pieces. If you hide your broken pieces behind a curtain, you cannot be part of the picture. We need an honest community where we can share our struggles.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-8 items-center">
-                <div class="bg-blue-100 p-6 rounded-2xl flex-shrink-0">
-                    <i data-lucide="droplet" class="w-16 h-16 text-blue-600"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-extrabold text-slate-900 mb-4">A Clean Heart (Tahor)</h2>
-                    <p class="text-lg text-slate-600">
-                        Trying to fix your habits by just trying harder is like putting up a new curtain to hide a messy room. We need God to step in. We ask Him for a <strong>Tahor</strong> heart—a completely clean, unmixed heart that desires Him more than our digital escapes.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. GET HELP NOW VIEW -->
+        <!-- 6. GET HELP NOW VIEW -->
         <section id="view-help" class="view-section fade-in">
             <div class="bg-slate-900 text-white p-8 sm:p-12 rounded-3xl text-center max-w-2xl mx-auto shadow-xl">
                 <i data-lucide="phone-call" class="w-16 h-16 text-blue-400 mx-auto mb-6"></i>
@@ -355,31 +409,38 @@
 
         // --- Render Curriculum Grid ---
         function renderCurriculum() {
-            const container = document.getElementById('curriculum-grid');
-            for (const [key, data] of Object.entries(modulesData)) {
-                const colorMap = {
-                    blue: "bg-blue-100 text-blue-600",
-                    pink: "bg-pink-100 text-pink-600",
-                    emerald: "bg-emerald-100 text-emerald-600",
-                    purple: "bg-purple-100 text-purple-600",
-                    yellow: "bg-yellow-100 text-yellow-600",
-                    red: "bg-red-100 text-red-600"
-                };
+            const containerIds = ['curriculum-grid', 'home-curriculum-grid'];
+            
+            containerIds.forEach(id => {
+                const container = document.getElementById(id);
+                if (!container) return;
                 
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col";
-                card.innerHTML = `
-                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${colorMap[data.color]}">
-                        <i data-lucide="${data.icon}" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-1">${data.title}</h3>
-                    <p class="text-slate-500 font-medium mb-4">${data.subtitle}</p>
-                    <button class="mt-auto text-left text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-1 group">
-                        View Details <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-                    </button>
-                `;
-                container.appendChild(card);
-            }
+                container.innerHTML = '';
+                for (const [key, data] of Object.entries(modulesData)) {
+                    const colorMap = {
+                        blue: "bg-blue-100 text-blue-600",
+                        pink: "bg-pink-100 text-pink-600",
+                        emerald: "bg-emerald-100 text-emerald-600",
+                        purple: "bg-purple-100 text-purple-600",
+                        yellow: "bg-yellow-100 text-yellow-600",
+                        red: "bg-red-100 text-red-600"
+                    };
+                    
+                    const card = document.createElement('div');
+                    card.className = "bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col";
+                    card.innerHTML = `
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${colorMap[data.color]}">
+                            <i data-lucide="${data.icon}" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">${data.title}</h3>
+                        <p class="text-slate-500 font-medium mb-4">${data.subtitle}</p>
+                        <button onclick="showView('curriculum')" class="mt-auto text-left text-blue-600 font-semibold hover:text-blue-800 flex items-center gap-1 group">
+                            View Details <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    `;
+                    container.appendChild(card);
+                }
+            });
             lucide.createIcons(); // Re-init icons for new elements
         }
 
